@@ -14,15 +14,47 @@ window.addEventListener('keypress', (e) => {
     guessesEl.textContent = game1.statusMessage;
 
 });
+// const request = new XMLHttpRequest();
+// request.addEventListener('readystatechange', (e) => {
+//     if (e.target.readyState === 4 && e.target.status === 200) {
+//         const data = JSON.parse(e.target.responseText);
+//         console.log(data);
+//     } else if (e.target.readyState === 4) {
+//         console.log('An error has taken place');
+//     }
+// });
+// request.open('GET', 'http://puzzle.mead.io/puzzle');
+// request.send();
+const countryCode = 'FR'
 const request = new XMLHttpRequest();
 request.addEventListener('readystatechange', (e) => {
     if (e.target.readyState === 4 && e.target.status === 200) {
         const data = JSON.parse(e.target.responseText);
-        console.log(data);
+        const country = data.find((country) => country.alpha2Code === countryCode);
+        console.log(country.name);
+
     } else if (e.target.readyState === 4) {
         console.log('An error has taken place');
     }
-});
-request.open('GET', 'http://puzzle.mead.io/puzzle');
+})
+request.open('GET', 'https://restcountries.eu/rest/v2/all');
 request.send();
+// const request = new XMLHttpRequest();
+// request.addEventListener('readystatechange', (e) => {
+//     if (e.target.readyState === 4 && e.target.status === 200) {
+//         const data = JSON.parse(e.target.responseText);
+//         const country = 'FR';
+//         const findCountry = function (data, country) {
+//             return data.find((result) => {
+//                 return result.alpha2Code.toLowerCase() === country.toLowerCase();
+//             })
+//         }
+//         const myCountry = findCountry(data, country);
+//         console.log(myCountry.name);
 
+//     } else if (e.target.readyState === 4) {
+//         console.log('An error has taken place');
+//     }
+// })
+// request.open('GET', 'https://restcountries.eu/rest/v2/all');
+// request.send();
