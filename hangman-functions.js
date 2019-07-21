@@ -16,13 +16,19 @@ window.addEventListener('keypress', (e) => {
 
 });
 
-getPuzzle((error, puzzle) => {
-    if (error) {
-        console.log(`Error ${error}`)
-    } else {
-        console.log(puzzle);
-    }
 
+// getPuzzle("2", (error, puzzle) => {
+//     if (error) {
+//         console.log(`Error ${error}`)
+//     } else {
+//         console.log(puzzle);
+//     }
+
+// })
+getPuzzle('2').then((puzzle) => {
+    console.log(puzzle)
+}, (err) => {
+    console.log(err);
 })
 
 // const puzzle = getPuzzleSync()
@@ -41,14 +47,19 @@ getPuzzle((error, puzzle) => {
 // request.open('GET', 'http://puzzle.mead.io/puzzle');
 // request.send();
 
-getCountryDetail("FR", (error, country) => {
-    if (error) {
-        console.log(`Error ${error}`)
+// getCountryDetail("FR", (error, country) => {
+//     if (error) {
+//         console.log(`Error ${error}`)
 
-    } else {
-        console.log(country.name);
-    }
+//     } else {
+//         console.log(country.name);
+//     }
 
+// })
+getCountryDetail('FR').then((data) => {
+    console.log(data.name);
+}, (err) => {
+    console.log(err)
 })
 
 // const countryCode = 'FR'
