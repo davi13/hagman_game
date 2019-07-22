@@ -33,8 +33,20 @@ const getCountryDetail = (countryCode) => {
                 throw new Error('Unable to fetch puzzle');
             }
         }).then((data) => {
-            const country = data.find((country) => country.alpha2Code === countryCode);
-            return country;
+            return data.find((country) => country.alpha2Code === countryCode);
+        })
+}
+const getLocation = () => {
+    return fetch('http://ipinfo.io/json?token=f78bfb3a612b24')
+        .then((response) => {
+            if (response.status === 200) {
+                return response.json();
+
+            } else {
+                throw new Error('Unable to fetch location')
+            }
+        }).then((data) => {
+            return data;
         })
 }
 

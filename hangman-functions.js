@@ -42,4 +42,17 @@ getCountryDetail('FR').then((data) => {
 //         console.log(error);
 //     })
 
+// getLocation().then((data) => {
+//     console.log(`Your are curretly in ${data.city} ${data.region} ${data.country}`);
 
+// }, (err) => {
+//     console.log(err);
+// })
+
+getLocation().then((location) => {
+    return getCountryDetail(location.country);
+}).then((country) => {
+    console.log(country.name);
+}).catch((err) => {
+    console.log(err);
+})
