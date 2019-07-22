@@ -16,84 +16,30 @@ window.addEventListener('keypress', (e) => {
 
 });
 
-
-// getPuzzle("2", (error, puzzle) => {
-//     if (error) {
-//         console.log(`Error ${error}`)
-//     } else {
-//         console.log(puzzle);
-//     }
-
-// })
-getPuzzle('2').then((puzzle) => {
-    console.log(puzzle)
+getPuzzle('2').then((data) => {
+    console.log(data.puzzle)
 }, (err) => {
-    console.log(err);
-})
+    console.log(`Error : ${err}`);
+});
 
-// const puzzle = getPuzzleSync()
-// console.log(puzzle);
-// console.log('do something else');
 
-// const request = new XMLHttpRequest();
-// request.addEventListener('readystatechange', (e) => {
-//     if (e.target.readyState === 4 && e.target.status === 200) {
-//         const data = JSON.parse(e.target.responseText);
-//         console.log(data);
-//     } else if (e.target.readyState === 4) {
-//         console.log('An error has taken place');
-//     }
-// });
-// request.open('GET', 'http://puzzle.mead.io/puzzle');
-// request.send();
-
-// getCountryDetail("FR", (error, country) => {
-//     if (error) {
-//         console.log(`Error ${error}`)
-
-//     } else {
-//         console.log(country.name);
-//     }
-
-// })
 getCountryDetail('FR').then((data) => {
     console.log(data.name);
 }, (err) => {
     console.log(err)
-})
+});
 
-// const countryCode = 'FR'
-// const request = new XMLHttpRequest();
-// request.addEventListener('readystatechange', (e) => {
-//     if (e.target.readyState === 4 && e.target.status === 200) {
-//         const data = JSON.parse(e.target.responseText);
-//         const country = data.find((country) => country.alpha2Code === countryCode);
-//          console.log(country.name);
-
-//     } else if (e.target.readyState === 4) {
-//         console.log('An error has taken place');
-//     }
-// })
-// request.open('GET', 'https://restcountries.eu/rest/v2/all');
-// request.send();
-
-
-// const request = new XMLHttpRequest();
-// request.addEventListener('readystatechange', (e) => {
-//     if (e.target.readyState === 4 && e.target.status === 200) {
-//         const data = JSON.parse(e.target.responseText);
-//         const country = 'FR';
-//         const findCountry = function (data, country) {
-//             return data.find((result) => {
-//                 return result.alpha2Code.toLowerCase() === country.toLowerCase();
-//             })
+// fetch('http://puzzle.mead.io/puzzle', {})
+//     .then((response) => {
+//         if (response.status === 200) {
+//             return response.json();
+//         } else {
+//             throw new Error('Unable to fetch the puzzle');
 //         }
-//         const myCountry = findCountry(data, country);
-//         console.log(myCountry.name);
+//     }).then((data) => {
+//         console.log(data.puzzle);
+//     }).catch((error) => {
+//         console.log(error);
+//     })
 
-//     } else if (e.target.readyState === 4) {
-//         console.log('An error has taken place');
-//     }
-// })
-// request.open('GET', 'https://restcountries.eu/rest/v2/all');
-// request.send();
+
