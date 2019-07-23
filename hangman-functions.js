@@ -2,32 +2,45 @@
 
 const puzzleEl = document.querySelector('#puzzle');
 const guessesEl = document.querySelector('#guesses');
-const game1 = new Hangman('cat', 3);
-
-puzzleEl.textContent = game1.puzzle
-guessesEl.textContent = game1.statusMessage;
+let game1
+//  puzzleEl.textContent = game1.puzzle
+// guessesEl.textContent = game1.statusMessage;
 
 //Listen every key word press from de user
 window.addEventListener('keypress', (e) => {
     const guess = String.fromCharCode(e.charCode);
     game1.makeGuess(guess);
+    render();
+
+});
+const render = () => {
     puzzleEl.textContent = game1.puzzle;
     guessesEl.textContent = game1.statusMessage;
 
-});
+}
 
-getPuzzle('2').then((data) => {
-    console.log(data.puzzle)
-}, (err) => {
-    console.log(`Error : ${err}`);
-});
+const startGame = async () => {
+    const puzzle = await getPuzzle('2');
+    game1 = new Hangman(puzzle, 5);
+    render();
+}
+document.querySelector('#reset').addEventListener('click', startGame)
 
 
-getCountryDetail('FR').then((data) => {
-    console.log(data.name);
-}, (err) => {
-    console.log(err)
-});
+// getPuzzle('2').then((puzzle) => {
+//     console.log(puzzle)
+// }, (err) => {
+//     console.log(`Error : ${err}`);
+// });
+
+
+
+
+// getCountryDetail('FR').then((data) => {
+//     console.log(data.name);
+// }, (err) => {
+//     console.log(err)
+// });
 
 // fetch('http://puzzle.mead.io/puzzle', {})
 //     .then((response) => {
@@ -48,11 +61,17 @@ getCountryDetail('FR').then((data) => {
 // }, (err) => {
 //     console.log(err);
 // })
+// getCurrentCountry()
+//     .then((country) => {
+//         console.log(country.name);
+//     }).catch((error) => {
+//         console.log(error);
+//     })
 
-getLocation().then((location) => {
-    return getCountryDetail(location.country);
-}).then((country) => {
-    console.log(country.name);
-}).catch((err) => {
-    console.log(err);
-})
+// getLocation().then((location) => {
+//     return getCountryDetail(location.country);
+// }).then((country) => {
+//     console.log(country.name);
+// }).catch((err) => {
+//     console.log('Error: ' + err);
+// })
