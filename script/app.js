@@ -1,5 +1,5 @@
 //Primitive value
-
+//this are the primitive value
 //obeject : myObject -->Object.prototype--> null
 //Array: myArray --> Array.prototypes --> Object.prototype --> null
 //Function : myFunction --> Function.prototype --> Object.prototype --> null
