@@ -53,7 +53,8 @@ class Hangman {
         }
 
         if (isUnique) {
-            this.guessedLetters.push(guess);
+            //this.guessedLetters.push(guess);
+            this.guessedLetters = [...this.guessedLetters, guess];
         }
         if (isUnique && isBadGuess) {
             this.remainingGuesses--;
@@ -61,6 +62,7 @@ class Hangman {
         this.calculateStatus();
     }
 }
+export { Hangman as default }
 
 // Hangman.prototype.calculateStatus = function () {
 //     const finished = this.word.every((letter) => this.guessedLetters.includes(letter));
