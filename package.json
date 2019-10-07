@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "input.js",
+  "homepage": "https://github.com/davi13/hagman_game",
   "scripts": {
     "dev-server": "webpack-dev-server --mode development",
     "build": "webpack --mode production"
@@ -14,6 +15,7 @@
     "babel-loader": "^7.1.4",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
+    "gh-pages": "^2.1.1",
     "live-server": "^1.2.0",
     "validator": "^11.1.0",
     "webpack": "^4.5.0",
