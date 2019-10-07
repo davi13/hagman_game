@@ -39,4 +39,4 @@ const getLocation = async () => {
         throw new Error('Unable to fetch the courrent location');
     }
 }
-export { getPuzzle as default };
+//export { getPuzzle as default };
